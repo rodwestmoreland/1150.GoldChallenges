@@ -10,33 +10,15 @@ namespace _03_EmailNotifications
 {
     public class UI
     {
-        private readonly Contact_Repo _contactRepo = new Contact_Repo();
+        public static Contact_Repo _contactRepo = new Contact_Repo();
 
         public void Run()
         {
             SeedThis();
-            Menu();
+            MenuOps.Menu();
         }
-        public void Menu()
-        {
-            bool continueToRun = true;
-            while (continueToRun)
-            {
-                Console.WriteLine("Email Notification Management \nSelect option 1 - 5:\n\n" +
-                        "1. View all contacts\n" +
-                        "2. Add new contact\n" +
-                        "3. Update a contact\n" +
-                        "4. Delete a contact \n" +
-                        "5. Exit");
 
-                string menuSelect = (Console.ReadLine());
-                MenuSelectionCheck(menuSelect);
-            }// \while
-
-
-        }// Menu()
-
-        private void GetAllContacts()
+        public static void GetAllContacts()
         {
             List<Contact> contactList = _contactRepo.ReadAllContacts();
 
@@ -48,7 +30,7 @@ namespace _03_EmailNotifications
             Console.ReadKey();
         }
 
-        private void UpdateContact()
+        public void UpdateContact()
         {
 
             Contact newContact = new Contact();
@@ -68,7 +50,7 @@ namespace _03_EmailNotifications
             _contactRepo.UpdateContact(getId, newContact);
         }
 
-        private void AddNewContact()
+        public void AddNewContact()
         {
             Contact newContact = new Contact();
             Console.Write("Enter first name > ");
@@ -83,7 +65,7 @@ namespace _03_EmailNotifications
             
         }
 
-        private void DeleteContact()
+        public void DeleteContact()
         {
             List<Contact> contactList = _contactRepo.ReadAllContacts();
             Console.Write("Enter last name of contact you want to remove > ");
@@ -122,62 +104,6 @@ namespace _03_EmailNotifications
                 { Console.WriteLine("You have entered an incorrect value."); }
             } // \ IF DateTime active check
         }
-
-        public void MenuProcessing(byte selection)
-        {
-            Console.Clear();
-
-            switch (selection)
-            {
-                case 1:
-                    GetAllContacts();
-                    ClickToCont();
-                    break;
-                case 2:
-                    AddNewContact();
-                    ClickToCont();
-                    break;
-                case 3:
-                    UpdateContact();
-                    ClickToCont();
-                    break;
-                case 4:
-                    DeleteContact();
-                    ClickToCont();
-                    break;
-
-            }
-
-        }
-
-        private void MenuSelectionCheck(string menuSelect)
-        {
-            if (Byte.TryParse(menuSelect, out byte num))
-            {
-                if (num == 5)
-                { Environment.Exit(0); }
-                else if (num > 0 && num < 5)
-                { MenuProcessing(num); }
-                else
-                { InvalidSelection(); }
-            }
-            else
-            { InvalidSelection(); }
-        }
-
-        private static void InvalidSelection()
-        {
-            Console.Clear();
-            Console.WriteLine("\nPlease enter a number 1 - 5\n");
-        }
-
-        private static void ClickToCont()
-        {
-            Console.WriteLine("\n\n\nPress any key to continue");
-            Console.ReadKey();
-            Console.Clear();
-        }
-
 
         private void SeedThis()
         {

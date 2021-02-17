@@ -4,28 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _03_EmailNotifications
+namespace _01_Cafe_Repo
 {
     class MenuOps
     {
-        public static void Menu()
+        public static void MenuSelections()
         {
             bool continueToRun = true;
             while (continueToRun)
             {
-                Console.WriteLine("Email Notification Management \nSelect option 1 - 5:\n\n" +
-                        "1. View all contacts\n" +
-                        "2. Add new contact\n" +
-                        "3. Update a contact\n" +
-                        "4. Delete a contact \n" +
-                        "5. Exit");
+                Console.WriteLine("Electric and Hybrid insurance statistics 2017-2019 \nSelect option 1 - 5:\n\n" +
+                        "1. View all items on menu\n" +
+                        "2. Add new menu item\n" +
+                        "3. Delete a menu item by item number\n" +
+                        "4. Exit");
 
                 string menuSelect = (Console.ReadLine());
                 MenuSelectionCheck(menuSelect);
             }// \while
 
 
-        }// Menu()
+        }//MenuSelections()
 
         public static void MenuProcessing(byte selection)
         {
@@ -36,33 +35,29 @@ namespace _03_EmailNotifications
             switch (selection)
             {
                 case 1:
-                    UI.GetAllContacts();
+                    UI.MenuList();
                     ClickToCont();
                     break;
                 case 2:
-                    ui.AddNewContact();
+                    ui.AddMenuItem();
                     ClickToCont();
                     break;
                 case 3:
-                    ui.UpdateContact();
+                    ui.DeleteMenuItem();
                     ClickToCont();
                     break;
-                case 4:
-                    ui.DeleteContact();
-                    ClickToCont();
-                    break;
-
+                
             }
 
-        }
+        }//MenuProcessing()
 
-        public static void MenuSelectionCheck(string menuSelect)
+        private static void MenuSelectionCheck(string menuSelect)
         {
             if (Byte.TryParse(menuSelect, out byte num))
             {
-                if (num == 5)
+                if (num == 4)
                 { Environment.Exit(0); }
-                else if (num > 0 && num < 5)
+                else if (num > 0 && num < 4)
                 { MenuProcessing(num); }
                 else
                 { InvalidSelection(); }
@@ -74,10 +69,10 @@ namespace _03_EmailNotifications
         public static void InvalidSelection()
         {
             Console.Clear();
-            Console.WriteLine("\nPlease enter a number 1 - 5\n");
+            Console.WriteLine("\nPlease enter a number 1 - 4\n");
         }
 
-        public static void ClickToCont()
+        private static void ClickToCont()
         {
             Console.WriteLine("\n\n\nPress any key to continue");
             Console.ReadKey();

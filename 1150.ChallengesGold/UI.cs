@@ -9,55 +9,16 @@ namespace _01_Cafe_Repo
 {
     public class UI
     {
-        private readonly Cafe_Repo _cafeRepo = new Cafe_Repo();
-        
+        private static Cafe_Repo _cafeRepo = new Cafe_Repo();
+        public static List<CafeMenu> _menuList = new List<CafeMenu>();
+
         public void Run()
         {
             SeedThis();
-            MenuSelections();
-
+            MenuOps.MenuSelections();
         }// \Run
 
-        public void MenuSelections()
-        {
-            bool continueToRun = true;
-            while (continueToRun)
-            {
-                Console.WriteLine("Cafe Dinner Menu Editor \nSelect option 1 - 4:\n\n" +
-                        "1. View all items on menu\n" +
-                        "2. Add new menu item\n" +
-                        "3. Delete an menu item by item number \n" +
-                        "4. Exit");
-
-                string menuSelect = (Console.ReadLine());
-                MenuSelectionCheck(menuSelect);
-            }// \while
-
-        }// \MenuSelections()
-
-        public void MenuProcessing(byte selection)
-        {
-            Console.Clear();
-
-            switch (selection)
-            {
-                case 1:
-                    MenuList();
-                    ClickToCont();
-                    break;
-                case 2:
-                    AddMenuItem();
-                    ClickToCont();
-                    break;
-                case 3:
-                    DeleteMenuItem();
-                    ClickToCont();
-                    break;
-            }
-
-        }//MenuProcessing()
-
-        public void MenuList()
+        public static void MenuList()
         {
             List<CafeMenu> _list = _cafeRepo.GetMenu();
 
@@ -142,34 +103,6 @@ namespace _01_Cafe_Repo
                 Console.WriteLine($"\n{confirmItem.FoodName} deleted.");
             }
             else { Console.WriteLine($"\n{confirmItem.FoodName} was not deleted."); }
-        }
-
-        private void MenuSelectionCheck(string menuSelect)
-        {
-            if (Byte.TryParse(menuSelect, out byte num))
-            {
-                if (num == 4)
-                { Environment.Exit(0); }
-                else if (num > 0 && num < 4)
-                { MenuProcessing(num); }
-                else
-                { InvalidSelection();  }
-            }
-            else
-            {     InvalidSelection();  }
-        }
-
-        private static void InvalidSelection()
-        {
-            Console.Clear();
-            Console.WriteLine("\nPlease enter a number 1 - 4\n");
-        }
-        
-        private static void ClickToCont()
-        {
-            Console.WriteLine("\n\n\nPress any key to continue");
-            Console.ReadKey();
-            Console.Clear();
         }
 
         private void SeedThis()
