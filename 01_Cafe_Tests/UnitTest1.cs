@@ -40,10 +40,7 @@ namespace _01_Cafe_Tests
 
             int itemCheck = _cafeRepo.GetMenu().Count;
 
-            CafeMenu menuItem3 = new CafeMenu(3, "test",
-                                                    "test desc",
-                                                    "test ingredients",
-                                                    1.00m);
+            CafeMenu menuItem3 = new CafeMenu(3, "test", "test desc","test ingredients",1.00m);
 
             bool isAdded = _cafeRepo.AddMenuItem(menuItem3);
             
@@ -87,9 +84,11 @@ namespace _01_Cafe_Tests
             Assert.AreEqual(2, getId);
 
             bool isDeleted = _cafeRepo.DeleteMenuItem(getId);
+            
             Assert.IsTrue(isDeleted);
+            
             checkObj = _cafeRepo.GetItemByNumber(getId);
-
+       
             Assert.IsNull(checkObj);
         }
 

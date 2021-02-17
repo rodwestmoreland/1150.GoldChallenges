@@ -67,6 +67,7 @@ namespace _03_EmailNotifications
 
             _contactRepo.UpdateContact(getId, newContact);
         }
+
         private void AddNewContact()
         {
             Contact newContact = new Contact();
