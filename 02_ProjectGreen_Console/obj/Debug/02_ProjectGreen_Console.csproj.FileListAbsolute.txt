@@ -1,0 +1,10 @@
+C:\Users\rodne\source\repos\1150.ChallengesGold\02_ProjectGreen_Console\bin\Debug\02_ProjectGreen_Console.exe.config
+C:\Users\rodne\source\repos\1150.ChallengesGold\02_ProjectGreen_Console\bin\Debug\02_ProjectGreen_Console.exe
+C:\Users\rodne\source\repos\1150.ChallengesGold\02_ProjectGreen_Console\bin\Debug\02_ProjectGreen_Console.pdb
+C:\Users\rodne\source\repos\1150.ChallengesGold\02_ProjectGreen_Console\bin\Debug\02_ProjectGreen_Repo.dll
+C:\Users\rodne\source\repos\1150.ChallengesGold\02_ProjectGreen_Console\bin\Debug\02_ProjectGreen_Repo.pdb
+C:\Users\rodne\source\repos\1150.ChallengesGold\02_ProjectGreen_Console\obj\Debug\02_ProjectGreen_Console.csprojAssemblyReference.cache
+C:\Users\rodne\source\repos\1150.ChallengesGold\02_ProjectGreen_Console\obj\Debug\02_ProjectGreen_Console.csproj.CoreCompileInputs.cache
+C:\Users\rodne\source\repos\1150.ChallengesGold\02_ProjectGreen_Console\obj\Debug\02_ProjectGreen_Console.csproj.CopyComplete
+C:\Users\rodne\source\repos\1150.ChallengesGold\02_ProjectGreen_Console\obj\Debug\02_ProjectGreen_Console.exe
+C:\Users\rodne\source\repos\1150.ChallengesGold\02_ProjectGreen_Console\obj\Debug\02_ProjectGreen_Console.pdb

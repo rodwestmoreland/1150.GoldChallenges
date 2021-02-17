@@ -1,0 +1,6 @@
+C:\Users\rodne\source\repos\1150.ChallengesGold\01_Cafe_Repo\bin\Debug\01_Cafe_Repo.dll
+C:\Users\rodne\source\repos\1150.ChallengesGold\01_Cafe_Repo\bin\Debug\01_Cafe_Repo.pdb
+C:\Users\rodne\source\repos\1150.ChallengesGold\01_Cafe_Repo\obj\Debug\01_Cafe_Repo.csprojAssemblyReference.cache
+C:\Users\rodne\source\repos\1150.ChallengesGold\01_Cafe_Repo\obj\Debug\01_Cafe_Repo.csproj.CoreCompileInputs.cache
+C:\Users\rodne\source\repos\1150.ChallengesGold\01_Cafe_Repo\obj\Debug\01_Cafe_Repo.dll
+C:\Users\rodne\source\repos\1150.ChallengesGold\01_Cafe_Repo\obj\Debug\01_Cafe_Repo.pdb

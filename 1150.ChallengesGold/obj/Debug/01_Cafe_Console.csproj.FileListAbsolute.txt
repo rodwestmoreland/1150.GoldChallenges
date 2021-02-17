@@ -1,0 +1,10 @@
+C:\Users\rodne\source\repos\1150.ChallengesGold\1150.ChallengesGold\bin\Debug\1150.ChallengesGold.exe.config
+C:\Users\rodne\source\repos\1150.ChallengesGold\1150.ChallengesGold\bin\Debug\1150.ChallengesGold.exe
+C:\Users\rodne\source\repos\1150.ChallengesGold\1150.ChallengesGold\bin\Debug\1150.ChallengesGold.pdb
+C:\Users\rodne\source\repos\1150.ChallengesGold\1150.ChallengesGold\obj\Debug\01_Cafe_Console.csprojAssemblyReference.cache
+C:\Users\rodne\source\repos\1150.ChallengesGold\1150.ChallengesGold\obj\Debug\01_Cafe_Console.csproj.CoreCompileInputs.cache
+C:\Users\rodne\source\repos\1150.ChallengesGold\1150.ChallengesGold\obj\Debug\1150.ChallengesGold.exe
+C:\Users\rodne\source\repos\1150.ChallengesGold\1150.ChallengesGold\obj\Debug\1150.ChallengesGold.pdb
+C:\Users\rodne\source\repos\1150.ChallengesGold\1150.ChallengesGold\bin\Debug\01_Cafe_Repo.dll
+C:\Users\rodne\source\repos\1150.ChallengesGold\1150.ChallengesGold\bin\Debug\01_Cafe_Repo.pdb
+C:\Users\rodne\source\repos\1150.ChallengesGold\1150.ChallengesGold\obj\Debug\01_Cafe_Console.csproj.CopyComplete

@@ -1,0 +1,10 @@
+C:\Users\rodne\source\repos\1150.ChallengesGold\03_EmailNotifications\bin\Debug\03_EmailNotifications.exe.config
+C:\Users\rodne\source\repos\1150.ChallengesGold\03_EmailNotifications\bin\Debug\03_EmailNotifications.exe
+C:\Users\rodne\source\repos\1150.ChallengesGold\03_EmailNotifications\bin\Debug\03_EmailNotifications.pdb
+C:\Users\rodne\source\repos\1150.ChallengesGold\03_EmailNotifications\bin\Debug\03_Email_Repo.dll
+C:\Users\rodne\source\repos\1150.ChallengesGold\03_EmailNotifications\bin\Debug\03_Email_Repo.pdb
+C:\Users\rodne\source\repos\1150.ChallengesGold\03_EmailNotifications\obj\Debug\03_Email_Console.csprojAssemblyReference.cache
+C:\Users\rodne\source\repos\1150.ChallengesGold\03_EmailNotifications\obj\Debug\03_Email_Console.csproj.CoreCompileInputs.cache
+C:\Users\rodne\source\repos\1150.ChallengesGold\03_EmailNotifications\obj\Debug\03_Email_Console.csproj.CopyComplete
+C:\Users\rodne\source\repos\1150.ChallengesGold\03_EmailNotifications\obj\Debug\03_EmailNotifications.exe
+C:\Users\rodne\source\repos\1150.ChallengesGold\03_EmailNotifications\obj\Debug\03_EmailNotifications.pdb
