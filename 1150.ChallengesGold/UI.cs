@@ -35,31 +35,41 @@ namespace _01_Cafe_Repo
         {
             List<CafeMenu>  _list   = _cafeRepo.GetMenu();
             CafeMenu        newItem = new CafeMenu();
+            
             byte foodNum =0;
+            decimal foodPrice=0.0m;
             bool numberFound = false;
             bool numberCheck = true;
+            
             do
             {
                 
                 Console.Write("Enter Menu Item Number > ");
-                foodNum = Convert.ToByte(Console.ReadLine());
-
-                foreach (var item in _list)
-                {
-                    if (item.FoodNumber == foodNum)
+              
+                string verifyInput = (Console.ReadLine());
+            if (byte.TryParse(verifyInput, out foodNum))
+            {
+                    foreach (var item in _list)
                     {
-                        numberFound = true;
-                    }
+                        if (item.FoodNumber == foodNum)
+                        {
+                            numberFound = true;
+                        }
 
-                }//foreach
-                if (numberFound)
-                {
-                    Console.WriteLine("pick another number");
-                    numberFound = false;
+                    }//foreach
+                    if (numberFound)
+                    {
+                        Console.WriteLine("pick another number");
+                        numberFound = false;
+                    }
+                    else { numberFound = false; numberCheck = false; }
+
                 }
-                else { numberFound = false; numberCheck = false; }
+                else 
+            { Console.WriteLine("ERROR: Check the ID number and try again.\n\n"); MenuOps.MenuSelections(); }  
 
             } while (numberCheck);
+
             
             Console.Write("Enter Menu Item Name > ");
             string foodName = (Console.ReadLine());
@@ -70,16 +80,37 @@ namespace _01_Cafe_Repo
             Console.Write("Enter Menu Item Ingredients > ");
             string foodIngredients = (Console.ReadLine());
 
+            do
+            {
             Console.Write("Enter Item Price > ");
-            decimal foodPrice = Convert.ToDecimal(Console.ReadLine());
+            
+                string verifyInput = (Console.ReadLine());
+                if (decimal.TryParse(verifyInput, out decimal checkFoodPrice))
+                {
+                    foodPrice = checkFoodPrice;
+                    numberCheck = false;
+                }
+                else
+                {
+                    Console.WriteLine("ERROR: Needs to be in currency format (e.g. 1.00).\n\n");
+                    numberCheck = true;
+                }
+
+                } while (numberCheck);
+
+
+
+
             Console.Clear();
 
-            Console.WriteLine("Confirm: Would you like to enter this as a new menu item (y/n)?\n");
+            
             Console.WriteLine($"Item # {foodNum}:  ${foodPrice}  {foodName} ");
             Console.WriteLine($"Description: {foodDesc} ");
             Console.WriteLine($"-- Ingredients: {foodIngredients} \n");
-            char response = Convert.ToChar(Console.ReadLine().ToLower());
-            if (response == 'y') 
+            Console.Write("Confirm: Would you like to enter this as a new menu item (y/n)? > \n");
+            string response = (Console.ReadLine().ToLower());
+
+            if (response == "y") 
             {
                 newItem.FoodNumber =        foodNum;
                 newItem.FoodName =          foodName;    
@@ -88,22 +119,44 @@ namespace _01_Cafe_Repo
                 newItem.Price =             foodPrice;
                 _cafeRepo.AddMenuItem(newItem);
             }
+            else
+            {
+                Console.WriteLine("Unknown response. Changes cancelled. Try again.");
+            }
         }
 
         public void DeleteMenuItem()
         {
             Console.Write("Enter item number that you would like to delete > ");
-            byte itemToDelete = Convert.ToByte(Console.ReadLine());
-            var confirmItem = _cafeRepo.GetItemByNumber(itemToDelete);
-            Console.Write($"Delete {confirmItem.FoodName} (y/n)? >");
-            char confirmDelete = Convert.ToChar( Console.ReadLine());
-            if (confirmDelete == 'y')
+            byte itemToDelete;
+
+            //byte itemToDelete = Convert.ToByte(Console.ReadLine());
+            string verifyInput = (Console.ReadLine());
+            if (byte.TryParse(verifyInput, out itemToDelete))
             {
-                _cafeRepo.DeleteMenuItem( itemToDelete);
-                Console.WriteLine($"\n{confirmItem.FoodName} deleted.");
+                var confirmItem = _cafeRepo.GetItemByNumber(itemToDelete);
+                if (confirmItem == null)
+                { Console.WriteLine("Error: Item number not found. Try again."); MenuOps.MenuSelections(); }
+                else
+                {
+                    Console.Write($"Delete {confirmItem.FoodName} (y/n)? >");
+                    string confirmDelete = ( Console.ReadLine().ToLower());
+                
+                    if (confirmDelete == "y")
+                {
+                    _cafeRepo.DeleteMenuItem( itemToDelete);
+                    Console.WriteLine($"\n{confirmItem.FoodName} deleted.");
+                }
+                else { Console.WriteLine($"\n{confirmItem.FoodName} was not deleted."); }
+                }
             }
-            else { Console.WriteLine($"\n{confirmItem.FoodName} was not deleted."); }
-        }
+            else
+            {
+                Console.WriteLine("Error: Item number not found. Try again."); MenuOps.MenuSelections();
+            }
+            //TryParse
+            
+        }//DeleteItem()
 
         private void SeedThis()
         {

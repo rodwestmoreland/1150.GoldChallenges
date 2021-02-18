@@ -11,6 +11,7 @@ namespace _01_Cafe_Repo
         static void Main(string[] args)
         {
             UI ui = new UI();
+            Console.Title = "Cafe Menu Editor";
             ui.Run();
         }
     }

@@ -37,8 +37,8 @@ namespace _03_Email_Repo
         {
             if (DateTime.TryParse(Convert.ToString(contact.DateActive), out DateTime dateInput))
             {
-                TimeSpan dateDiff = (TimeSpan)(DateTime.Now - dateInput);
-                int timeActive = (int)(dateDiff.Days);
+                int timeActive = (int)((TimeSpan)(DateTime.Now - dateInput)).Days;
+                //int timeActive = (int)(dateDiff.Days);
                 if (timeActive > 90)
                 {
                     contact.Status = 'A';

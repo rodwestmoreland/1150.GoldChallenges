@@ -13,7 +13,7 @@ namespace _01_Cafe_Repo
             bool continueToRun = true;
             while (continueToRun)
             {
-                Console.WriteLine("Electric and Hybrid insurance statistics 2017-2019 \nSelect option 1 - 5:\n\n" +
+                Console.WriteLine("To view or edit menu items, Select options 1 - 3 below:\n\n" +
                         "1. View all items on menu\n" +
                         "2. Add new menu item\n" +
                         "3. Delete a menu item by item number\n" +

@@ -45,22 +45,30 @@ namespace _02_ProjectGreen_Console
             bool numberCheck = true;
             do
             {
+                
                 Console.Write("Enter an ID Number > ");
-                carNum = Convert.ToUInt16(Console.ReadLine());
-
-                foreach (var item in _list)
+                //carNum = Convert.ToUInt16(Console.ReadLine());
+                string verifyInput = Console.ReadLine();
+                if (ushort.TryParse(verifyInput, out carNum))
                 {
-                    if (item.Id == carNum)
-                    { numberFound = true; }
+                    foreach (var item in _list)
+                    {
+                        if (item.Id == carNum)
+                        { numberFound = true; }
 
-                }//foreach
-                if (numberFound)
-                {
-                    int maxID = _list.Max(x => x.Id);
-                    Console.WriteLine($"pick another number. FYI: The highest number in the inventory is {maxID}");
-                    numberFound = false;
+                    }//foreach
+                    if (numberFound)
+                    {
+                        int maxID = _list.Max(x => x.Id);
+                        Console.WriteLine($"pick another number. FYI: The highest number in the inventory is {maxID}");
+                        numberFound = false;
+                    }
+                    else { numberFound = false; numberCheck = false; }
+
                 }
-                else { numberFound = false; numberCheck = false; }
+                else { Console.WriteLine("Error: Invalid input. Try again."); numberCheck = true; }
+
+
 
             } while (numberCheck);
 
@@ -103,7 +111,7 @@ namespace _02_ProjectGreen_Console
             string response = Console.ReadLine();
             if (response == "y")
             { _carRepo.DeleteCar(getId); Console.WriteLine("\nVehicle Removed"); } 
-            else { Console.WriteLine("Return to the menu");  }
+            else { Console.WriteLine("Invalid Response. Return to the menu");  }
 
         }
 
@@ -117,15 +125,69 @@ namespace _02_ProjectGreen_Console
 
             Console.Write("Enter engine type > ");
             string carEngine = (Console.ReadLine());
+            
+            bool numberCheck = true;
+            double carCollision=0.0;
+            do { 
+            Console.Write("Enter reported collision percentage in decimal format (e.g. 42% = .42) > ");
+          
+            string verifyInput = (Console.ReadLine());
+            if (double.TryParse(verifyInput, out double userInput))
+            {
+                carCollision = userInput ;
+                numberCheck = false;
+            }
+            else
+            {
+                Console.WriteLine("ERROR: Needs to be in decial format (e.g. 0.10).\n\n");
+                numberCheck = true;
+            }
 
-            Console.Write("Enter reported collision percentage > ");
-            double carCollision = Convert.ToDouble(Console.ReadLine());
+        } while (numberCheck);
 
-            Console.Write("Enter reported comprehensive percentage > ");
-            double carComprehensive = Convert.ToDouble(Console.ReadLine());
+            
+            //Console.Write("Enter reported personal injury percentage > ");
+            //double carInjury = Convert.ToDouble(Console.ReadLine());
+            
+            double carComprehensive = 0.0;
+            do
+            {
+                Console.Write("Enter reported comprehensive percentage in decimal format (e.g. 42% = .42) > ");
 
-            Console.Write("Enter reported personal injury percentage > ");
-            double carInjury = Convert.ToDouble(Console.ReadLine());
+                string verifyInput = (Console.ReadLine());
+                if (double.TryParse(verifyInput, out double userInput))
+                {
+                    carComprehensive = userInput;
+                    numberCheck = false;
+                }
+                else
+                {
+                    Console.WriteLine("ERROR: Needs to be in decial format (e.g. 0.10).\n\n");
+                    numberCheck = true;
+                }
+
+            } while (numberCheck);
+
+
+            double carInjury = 0.0;
+            do
+            {
+                Console.Write("Enter reported personal injury percentage in decimal format (e.g. 42% = .42) > ");
+
+                string verifyInput = (Console.ReadLine());
+                if (double.TryParse(verifyInput, out double userInput))
+                {
+                    carInjury = userInput;
+                    numberCheck = false;
+                }
+                else
+                {
+                    Console.WriteLine("ERROR: Needs to be in decial format (e.g. 0.10).\n\n");
+                    numberCheck = true;
+                }
+
+            } while (numberCheck);
+
             Console.Clear();
 
             Console.WriteLine();
@@ -133,8 +195,8 @@ namespace _02_ProjectGreen_Console
                 $"Collision: {carCollision}\t Comprehensive: {carComprehensive}\t Personal Injury: {carInjury}\n");
             Console.Write("Confirm: Is this information correct?\n (y/n) > ");
 
-            char response = Convert.ToChar(Console.ReadLine().ToLower());
-            if (response == 'y')
+            string response = (Console.ReadLine().ToLower());
+            if (response == "y")
             {
                 newItem.Id = carNum;
                 newItem.Make = carMake;
@@ -144,6 +206,9 @@ namespace _02_ProjectGreen_Console
                 newItem.Comprehensive = carComprehensive;
                 newItem.PersonalInjury = carInjury;
             }
+            else { Console.WriteLine("Invalid response. Changes not saved. Please try again.\n\n" ); MenuOps.MenuSelections(); }
+
+
         }//AddCarDetails()
 
         public void SeedThis()

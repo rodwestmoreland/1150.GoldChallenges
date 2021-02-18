@@ -11,6 +11,7 @@ namespace _03_EmailNotifications
         static void Main(string[] args)
         {
             UI ui = new UI();
+            Console.Title = "Komodo: Notification Manager";
             ui.Run();
         }
     }

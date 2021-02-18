@@ -81,6 +81,10 @@ namespace _01_Cafe_Tests
 
             CafeMenu checkObj = _cafeRepo.GetItemByNumber(getId);
 
+            CafeMenu checkObj2 = _cafeRepo.GetItemByNumber(6);
+            Assert.IsNull(checkObj2);
+            _cafeRepo.DeleteMenuItem(6);
+
             Assert.AreEqual(2, getId);
 
             bool isDeleted = _cafeRepo.DeleteMenuItem(getId);
