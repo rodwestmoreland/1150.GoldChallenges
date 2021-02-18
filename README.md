@@ -16,3 +16,13 @@ This application displays certain 2017-2019 insurance data from the Insurance In
 
 ### Email Notification Manager
 Komodo had a request to keep categorize customers by length of time as a client. If the client had not requested services from Komodo for a certain period of time, then set an email body message to offer them an incentive to do business again. For current clients, a thank you message would be produced.  Contacts who have not yet become a client of Komodo would receive an email body containing special offers. Users can view all contacts and their status on the View All Contacts selection. Contacts can be added, updated and deleted as well.
+
+### Getting started
+If you would like to review the projects you can clone them here.
+
+`git clone https://github.com/rodwestmoreland/1150.GoldChallenges.git`
+
+### Contact
+Rod Westmoreland
+https://www.linkedin.com/in/rodney-westmoreland/
+
